@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Callback Tesla</title>
+  </head>
+  <body>
+    <h1>Callback Tesla</h1>
+    <p>Si vous voyez cette page, c’est que Tesla vous a redirigé ici.</p>
+    <script>
+      // Récupération du code OAuth dans l’URL
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+
+      document.body.innerHTML += `<p>Code: ${code}</p>`;
+      document.body.innerHTML += `<p>State: ${state}</p>`;
+    </script>
+  </body>
+</html>
