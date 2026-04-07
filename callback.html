@@ -6,15 +6,19 @@
   </head>
   <body>
     <h1>Callback Tesla</h1>
-    <p>Redirection en cours…</p>
+    <p id="status">Traitement en cours…</p>
+    <p>Code : <span id="code-display"></span></p>
+    <p>State : <span id="state-display"></span></p>
 
     <script>
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
       const state = params.get("state");
 
-      document.body.innerHTML += `<p>Code OAuth : ${code}</p>`;
-      document.body.innerHTML += `<p>State : ${state}</p>`;
+      // textContent : aucun HTML ne peut être injecté
+      document.getElementById("code-display").textContent = code ?? "absent";
+      document.getElementById("state-display").textContent = state ?? "absent";
+      document.getElementById("status").textContent = "Paramètres reçus.";
     </script>
   </body>
 </html>
